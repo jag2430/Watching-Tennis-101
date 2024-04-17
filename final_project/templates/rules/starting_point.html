@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Starting The Point</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    
+    <div class="container mt-5 mb-5">
+        <a href="/rules" class="btn btn-primary mb-3">Back to Rules</a>
+        <h1 class="text-center">Starting The Point</h1>
+        <div class="row mt-5">
+            <div class="col">
+                <img src="https://tenniscompanion.org/wp-content/uploads/2023/04/worlds-fastest-mens-and-womens-tennis-serves-ever-recorded.png" 
+                alt="Starting The Point"
+                style="width: 90%; height: 90%">
+            </div>
+            <div class="col mt-5 ml-0">
+                A point begins when the serving player hits a serve into
+                the opponent's service box on the opposite side from where they are standing.
+                The server gets two chances to serve the ball into play. If they miss both, they lose
+                the point. This is known as a double fault.  <br>
+                <br>
+                The serving player alternates between standing to the right of the center mark (deuce side of the court)
+                and to the left (ad side of the court).
+            </div>
+        </div>
+        
+    </div>
+
+    <a href="/rules/cointoss" class="btn btn-secondary btn-coin-toss position-absolute" style="bottom: 10px; left: 50px;">Coin Toss</a>
+    <a href="/rules/point-breakdown" class="btn btn-secondary btn-point-breakdown position-absolute" style="bottom: 10px; right: 50px;">Point Breakdown</a>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Switching Sides</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    
+    <div class="container mt-5 mb-5">
+        <a href="/rules" class="btn btn-primary mb-3">Back to Rules</a>
+        <h1 class="text-center">Switching Sides</h1>
+        <div class="row mt-5">
+            <div class="col">
+                <img src="https://i.guim.co.uk/img/media/7fe3ffb41d0412070440f39fc4b310c55d9ddf65/0_200_6000_3600/master/6000.jpg?width=980&dpr=2&s=none" 
+                alt="Switching Sides"
+                style="width: 90%; height: 90%">
+            </div>
+            <div class="col mt-5 ml-0">
+                Players or teams switch sides of the
+                court on odd games. <br>
+                <br>
+                This means that after the first game is
+                finished, they switch sides, as well as
+                every two games after that.
+
+            </div>
+        </div>
+        
+    </div>
+
+    <a href="/rules/point-breakdown" class="btn btn-secondary btn-point-breakdown position-absolute" style="bottom: 10px; left: 50px;">Point Breakdown</a>
+    
+    <button class="btn btn-primary btn-next-section position-absolute mb-5" id="nextSectionBtn" style="bottom: 10px; right: 50px;">Next Section</button>
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#nextSectionBtn').click(function(){
+                window.location.href = '/scoring';
+            });
+        });
+    </script>
+</body>
+</html>

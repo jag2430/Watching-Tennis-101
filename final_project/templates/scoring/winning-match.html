@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Winning The Match</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    
+    <div class="container mt-5 mb-5">
+        <a href="/scoring" class="btn btn-primary mb-3">Back to Scoring</a>
+        <h1 class="text-center">Winning The Match</h1>
+        <div class="row mt-5">
+            <div class="col">
+                <img src="https://i.cbc.ca/1.6961499.1694210901!/fileImage/httpImage/1653673556.jpg" 
+                alt="Win Match"
+                style="width: 90%; height: 85%">
+            </div>
+            <div class="col mt-2 ml-0">
+                The most common format used in tennis is a
+                best-of-three sets format.<br>
+                <br>
+                However, in Grand Slams, (Australian Open,
+                Roland Garros, Wimbledon, US Open), a
+                best-of-five sets format is used. <br>
+                <br>
+                When a match reaches 6-6 in the deciding set at
+                a Grand Slam, a 10-point tiebreaker will be
+                played. <br>
+                <br>
+                The first player to win 10 points, with an
+                advantage of two or more points, wins.
+            </div>
+        </div>
+        
+    </div>
+    
+    <a href="/scoring/tiebreaker" class="btn btn-secondary btn-tiebreaker position-absolute" style="bottom: 10px; left: 50px;">Tiebreaker</a>
+    <button class="btn btn-primary btn-next-section position-absolute mb-5" id="takeTestBtn" style="bottom: -30px; right: 50px;">Take Test</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#takeTestBtn').click(function(){
+                window.location.href = '/test';
+            });
+        });
+    </script>
+</body>
+</html>

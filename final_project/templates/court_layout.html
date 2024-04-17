@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Court Layout</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Include navbar -->
+    {% include 'navbar.html' %}
+
+    <div class="container mt-5">
+        <h1 class="text-center">Court Layout</h1>
+        {% for part_number, part in court_layout_data.items() %}
+        <div id="part-{{ part_number }}" class="part">
+            <div class="row">
+                <div class="col">
+                    <img src="{{ part.img }}" 
+                        alt="{{ part.name }}"
+                        style="width: 90%; height: 90%">
+                </div>
+                <div class="col d-flex justify-content-center align-items-center">
+                    <div class="container border">
+                        <h2>{{ part.number }}</h2>
+                        <h3>{{ part.name }}</h3>
+                        <p>{{ part.text }}</p>
+                        {% if part_number|int > 1 %}
+                            <button class="btn btn-primary btn-prev" onclick="prevPart({{ part_number|int }})">Previous</button>
+                        {% endif %}
+                        {% if part_number|int < 9 %}
+                            <button class="btn btn-primary btn-next" onclick="nextPart({{ part_number|int }})">Next</button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <button class="btn btn-primary btn-next-section position-absolute mb-5" id="nextSectionBtn" style="bottom: -150px; right: 100px;">Next Section</button>
+    
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            let parts = {{ court_layout_data | tojson | safe }};
+            let currentPart = 1;
+
+            displayPart(currentPart);
+
+            function displayPart(partNumber) {
+                $('.part').hide();
+                $('#part-' + partNumber).show();
+            }
+
+            window.nextPart = function(partNumber) {
+                displayPart(partNumber + 1);
+            };
+
+            window.prevPart = function(partNumber) {
+                displayPart(partNumber - 1);
+            };
+
+            $('#nextSectionBtn').click(function(){
+                window.location.href = '/rules';
+            });
+        });
+    </script>
+</body>
+</html>

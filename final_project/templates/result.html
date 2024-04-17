@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Score</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Include navbar -->
+    {% include 'navbar.html' %}
+    
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col">
+                <img src="https://image-cdn.essentiallysports.com/wp-content/uploads/us-open-1-1.jpg" 
+                    alt="Rules Image"
+                    style="width: 100%; height: 100%">
+            </div>
+            <div class="col mt-4">
+                <h1 class="text-center mb-5">Game. Set. Match.</h1>
+                <h4 class="text-center mb-5">Your Score: {{ correct_count }} out of 8</h4>
+                <h4 class="text-center mb-5"><a href="/test">Click Here</a> to Retake Test</h4>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

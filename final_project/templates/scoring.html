@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scoring</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include Bootstrap CSS -->
+</head>
+<body>
+    <!-- Include navbar -->
+    {% include 'navbar.html' %}
+
+    <div class="container mt-5 mb-5">
+        <div class="container mb-3">
+            <h1 class="text-center">Scoring</h1>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="https://preview.redd.it/yeah-okey-but-which-one-has-the-greatest-scoreboard-v0-q2oox973rzub1.jpg?width=640&crop=smart&auto=webp&s=403810e04ad4b33e58d3fe5a6f5cd846c36ec65a" 
+                    alt="Scoring"
+                    style="width: 75%; height: 90%">
+            </div>
+            <div class="col mt-5">
+                <a href="/scoring/point-system" class="text-left">
+                    <h3>Point System</h3>
+                </a>
+                <a href="/scoring/deuce" class="text-left">
+                    <h3>Deuce</h3>
+                </a>
+                <a href="/scoring/winning-set" class="text-left">
+                    <h3>Winning A Set</h3>
+                </a>
+                <a href="/scoring/tiebreaker" class="text-left">
+                    <h3>Tiebreaker</h3>
+                </a>
+                <a href="/scoring/winning-match" class="text-left">
+                    <h3>Winning The Match</h3>
+                </a>
+            </div>
+        </div>
+        
+    </div>
+    
+    <button class="btn btn-primary btn-next-section position-absolute mb-5" id="takeTestBtn" style="bottom: 10px; right: 50px;">Take Test</button>
+    
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#takeTestBtn').click(function(){
+                window.location.href = '/test';
+            });
+        });
+    </script>
+</body>
+</html>

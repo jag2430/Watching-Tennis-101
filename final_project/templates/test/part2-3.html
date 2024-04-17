@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Include navbar -->
+    {% include 'navbar.html' %}
+    
+    <div class="container mt-5">
+        <h1 class="text-center">Test</h1>
+        
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col">
+                    <img src="https://www.shopdoubletake.com/cdn/shop/articles/DSC_1921---1080x1920.jpg?v=1660752812" 
+                        alt="Coin Toss"
+                        style="width: 90%; height: 90%">
+                </div>
+                <div class="col">
+                    <h2 class="mb-4">Rules (Part 2 of 3)</h2>
+                    <h4>Select the answer that is true</h4>
+                    <form id="quizForm" action="/record_answer/part2-3" method="post">
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="radio" name="answer" id="net" value="Serve First">
+                            <label class="form-check-label">
+                                The player who wins the coin toss can choose to serve first.
+                            </label>
+                        </div>
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="radio" name="answer" id="baseline" value="Receive First">
+                            <label class="form-check-label">
+                                The player who wins the coin toss can choose to receive first
+                            </label>
+                        </div>
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="radio" name="answer" id="serviceLine" value="Pick Side">
+                            <label class="form-check-label">
+                                The player who wins the coin toss can choose which side they want to start the match on.
+                            </label>
+                        </div>
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="radio" name="answer" id="serviceBox" value="All True">
+                            <label class="form-check-label">
+                                All of the above are true
+                            </label>
+                        </div>
+                        <button type="button" class="btn btn-primary mt-3" onclick="checkAnswer()">Check Answer</button>
+                        <div id="result" class="mt-4"></div>
+                    </form>
+                    <div class="mt-5">
+                        <button class="btn btn-secondary btn-more-review" id="moreReview" onclick="window.location.href='/rules'">Need More Review? Click Here</button>
+                    </div>
+                </div>
+            </div>          
+        </div>
+        <button class="btn btn-primary btn-next position-absolute mb-5" id="next" onclick="window.location.href='/test/part3-1'" style="bottom: -150px; right: 100px;" disabled>Next</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function checkAnswer() {
+            // Disable form elements
+            //$("input[name='answer']").prop("disabled", true);
+            //$("button[type='button']").prop("disabled", true);
+
+            let selectedAnswer = $("input[name='answer']:checked").val();
+            let correctAnswer = "All True";
+
+            if (selectedAnswer === correctAnswer) {
+                $("#result").html('<p class="text-success">Correct!</p>');
+                $("#next").prop("disabled", false);
+            } else {
+                $("#result").html('<p class="text-danger">Incorrect. All of the answer choices are true.</p>');
+                $("#next").prop("disabled", false);
+            }
+
+            // Submit the form using AJAX
+            $.ajax({
+                url: '/record_answer/part2-3',
+                type: 'POST',
+                data: $('#quizForm').serialize(),
+                success: function(response) {
+                    console.log(response); // Logging the response
+                },
+                error: function(error) {
+                    console.log(error); // Logging any errors
+                }
+            });
+        }
+    </script>
+</body>
+</html>

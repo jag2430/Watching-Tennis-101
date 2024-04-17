@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Include navbar -->
+    {% include 'navbar.html' %}
+    
+    <div class="container mt-5">
+        <h1 class="text-center">Test</h1>
+        
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col">
+                    <img src="https://i.ibb.co/7yTDsTT/Court-Layout-6.jpg" 
+                        alt="Baseline"
+                        style="width: 90%; height: 90%">
+                </div>
+                <div class="col">
+                    <h2 class="mb-4">Court Layout (Part 1 of 3)</h2>
+                    <h4>What is <span style="font-weight: bold;"> 7</span> called?</h4>
+                    <form id="quizForm" action="/record_answer/part1-2" method="post">
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="radio" name="answer" id="net" value="Net">
+                            <label class="form-check-label" for="net">
+                                Net
+                            </label>
+                        </div>
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="radio" name="answer" id="baseline" value="Baseline">
+                            <label class="form-check-label" for="baseline">
+                                Baseline
+                            </label>
+                        </div>
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="radio" name="answer" id="serviceLine" value="Service Line">
+                            <label class="form-check-label" for="serviceLine">
+                                Service Line
+                            </label>
+                        </div>
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="radio" name="answer" id="serviceBox" value="Service Box">
+                            <label class="form-check-label" for="serviceBox">
+                                Service Box
+                            </label>
+                        </div>
+                        <button type="button" class="btn btn-primary mt-3" onclick="checkAnswer()">Check Answer</button>
+                        <div id="result" class="mt-4"></div>
+                    </form>
+                    <div class="mt-5">
+                        <button class="btn btn-secondary btn-more-review" id="moreReview" onclick="window.location.href='/court-layout'">Need More Review? Click Here</button>
+                    </div>
+                </div>
+            </div>          
+        </div>
+        <button class="btn btn-primary btn-next position-absolute mb-5" id="next" onclick="window.location.href='/test/part2-1'" style="bottom: -150px; right: 100px;" disabled>Next</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function checkAnswer() {
+            // Disable form elements
+            //$("input[name='answer']").prop("disabled", true);
+            //$("button[type='button']").prop("disabled", true);
+
+            let selectedAnswer = $("input[name='answer']:checked").val();
+            let correctAnswer = "Service Line";
+
+            if (selectedAnswer === correctAnswer) {
+                $("#result").html('<p class="text-success">Correct!</p>');
+                $("#next").prop("disabled", false);
+            } else {
+                $("#result").html('<p class="text-danger">Incorrect. The correct answer is Service Line.</p>');
+                $("#next").prop("disabled", false);
+            }
+
+            // Submit the form using AJAX
+            $.ajax({
+                url: '/record_answer/part1-2',
+                type: 'POST',
+                data: $('#quizForm').serialize(),
+                success: function(response) {
+                    console.log(response); // Logging the response
+                },
+                error: function(error) {
+                    console.log(error); // Logging any errors
+                }
+            });
+        }
+    </script>
+</body>
+</html>

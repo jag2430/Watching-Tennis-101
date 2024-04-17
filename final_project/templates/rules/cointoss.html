@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cointoss</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    
+    <div class="container mt-5 mb-5">
+        <a href="/rules" class="btn btn-primary mb-3">Back to Rules</a>
+        <h1 class="text-center">Coin Toss</h1>
+        <div class="row mt-5">
+            <div class="col">
+                <img src="https://www.shopdoubletake.com/cdn/shop/articles/DSC_1921---1080x1920.jpg?v=1660752812" 
+                alt="Coin Toss"
+                style="width: 90%; height: 90%">
+            </div>
+            <div class="col mt-5 ml-0">
+                A tennis match begins with the umpire
+                doing a coin toss. <br>
+                <br>
+                The player who wins the toss can
+                choose to serve, receive, or pick the
+                side from which they want to start the
+                match.
+            </div>
+        </div>
+        
+    </div>
+
+    <a href="/rules/gameplay" class="btn btn-secondary btn-gameplay position-absolute" style="bottom: 10px; left: 50px;">Gameplay</a>
+    <a href="/rules/starting-point" class="btn btn-secondary btn-starting-point position-absolute" style="bottom: 10px; right: 50px;">Starting The Point</a>
+</body>
+</html>

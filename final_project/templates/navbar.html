@@ -1,0 +1,16 @@
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="nav-link {% if request.path == '/home' %}active{% endif %}" href="/home">Home</a>
+        <a class="nav-link {% if request.path == '/court-layout' %}active{% endif %}" href="/court-layout">Court Layout</a>
+        <a class="nav-link {% if request.path == '/rules' %}active{% endif %}" href="/rules">Rules</a>
+        <a class="nav-link {% if request.path == '/scoring' %}active{% endif %}" href="/scoring">Scoring</a>
+        <a class="nav-link {% if request.path == '/test' %}active{% endif %}" href="/test">Test</a>
+    </div>
+</nav>
+
+<style>
+    .active {
+        font-weight: bold;
+    }
+</style>

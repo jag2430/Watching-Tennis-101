@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Include navbar -->
+    {% include 'navbar.html' %}
+    
+    <div class="container mt-5">
+        <h1 class="text-center">Test</h1>
+        
+        <div class="container mt-4">
+            <h2 class="mb-4 text-center">Scoring (Part 3 of 3)</h2>
+            <h4 class="mb-3">Given this score:</h4>
+            <img src="https://i.ibb.co/n81T3qd/Score.jpg"
+            alt="Score"
+            class="mb-3"
+            style="width: 25%; height: 25%">
+            <h4>After one point is played, what could the score be now? Select All.</h4>
+            
+            <form id="quizForm" action="/record_answer/part3-1" method="post">
+                <div class="form-check mt-3">
+                    <input class="form-check-input" type="checkbox" name="answer1" id="serveFirst" value="#1">
+                    <label class="form-check-label" for="serveFirst">
+                        <h4>#1</h4>
+                        <img src="https://i.ibb.co/JCnM16S/Score-1.jpg"
+                            alt="Score"
+                            class="mb-3"
+                            style="width: 50%; height: 50%">
+                        
+                    </label>
+                    <input class="form-check-input" type="checkbox" name="answer2" id="serveFirst" value="#2">
+                    <label class="form-check-label" for="serveFirst">
+                        <h4>#2</h4>
+                        <img src="https://i.ibb.co/VgXRLCn/Score-2.jpg"
+                            alt="Score"
+                            class="mb-3"
+                            style="width: 50%; height: 50%">
+                    </label>
+                </div>
+                <div class="form-check mt-3">
+                    <input class="form-check-input" type="checkbox" name="answer3" id="serveFirst" value="#3">
+                    <label class="form-check-label" for="serveFirst">
+                        <h4>#3</h4>
+                        <img src="https://i.ibb.co/7KvTVmT/Score-3.jpg"
+                            alt="Score"
+                            class="mb-3"
+                            style="width: 50%; height: 50%">
+                        
+                    </label>
+                    <input class="form-check-input" type="checkbox" name="answer4" id="serveFirst" value="#4">
+                    <label class="form-check-label" for="serveFirst">
+                        <h4>#4</h4>
+                        <img src="https://i.ibb.co/5jc2Dzs/Score-4.jpg"
+                            alt="Score"
+                            class="mb-3"
+                            style="width: 50%; height: 50%">
+                    </label>
+                </div>
+                <button type="button" class="btn btn-primary mt-3" onclick="checkAnswer()">Check Answer</button>
+                <div id="result" class="mt-4"></div>
+            </form>
+            <div class="mt-5">
+                <button class="btn btn-secondary btn-more-review" id="moreReview" onclick="window.location.href='/scoring'">Need More Review? Click Here</button>
+            </div>         
+        </div>
+        <button class="btn btn-primary btn-next position-absolute mb-5" id="next" onclick="window.location.href='/test/part3-2'" style="bottom: -150px; right: 100px;" disabled>Next</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function checkAnswer() {
+            // Disable form elements
+            //$("input[type='checkbox']").prop("disabled", true);
+            //$("button[type='button']").prop("disabled", true);
+
+            let answer1 = $("input[name='answer1']:checked").val();
+            let answer2 = $("input[name='answer2']:checked").val();
+            let answer3 = $("input[name='answer3']:checked").val();
+            let answer4 = $("input[name='answer4']:checked").val();
+
+
+            if (answer1 && answer3) {
+                $("#result").html('<p class="text-success">Correct!</p>');
+                $("#next").prop("disabled", false);
+            } else {
+                $("#result").html('<p class="text-danger">Incorrect. The correct answers are #1 and #3 </p>');
+                $("#next").prop("disabled", false);
+            }
+
+            // Submit the form using AJAX
+            $.ajax({
+                url: '/record_answer/part3-1',
+                type: 'POST',
+                data: $('#quizForm').serialize(),
+                success: function(response) {
+                    console.log(response); // Logging the response
+                },
+                error: function(error) {
+                    console.log(error); // Logging any errors
+                }
+            });
+        }
+    </script>
+</body>
+</html>

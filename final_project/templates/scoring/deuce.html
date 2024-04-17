@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Deuce</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    
+    <div class="container mt-5 mb-5">
+        <a href="/scoring" class="btn btn-primary mb-3">Back to Scoring</a>
+        <h1 class="text-center">Deuce</h1>
+        <div class="row mt-5">
+            <div class="col">
+                <img src="https://i.ibb.co/5nf0tg4/Deuce.jpg" 
+                alt="Deuce"
+                style="width: 85%; height: 85%">
+            </div>
+            <div class="col mt-5 ml-0">
+                When the score is 40-40, it is called <span style="font-weight: bold;">deuce</span>. <br>
+                <br>
+                At deuce, the player who wins the next point has <span style="font-weight: bold;">advantage</span> (AD). <br>
+                <br>
+                If the player with the advantage wins the next point, they win the game. <br>
+                <br>
+                If they lose the point, the score goes back to
+                deuce. A player needs to win two consecutive
+                points after deuce to win a game.
+            </div>
+        </div>
+        
+    </div>
+    
+    <a href="/scoring/point-system" class="btn btn-secondary btn-point-system position-absolute" style="bottom: 10px; left: 50px;">Point System</a>
+    <a href="/scoring/winning-set" class="btn btn-secondary btn-winning-set position-absolute" style="bottom: 10px; right: 50px;">Winning A Set</a>
+
+</body>
+</html>

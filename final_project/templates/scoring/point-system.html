@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Point System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    
+    <div class="container mt-5 mb-5">
+        <a href="/scoring" class="btn btn-primary mb-3">Back to Scoring</a>
+        <h1 class="text-center">Point System</h1>
+        <div class="row mt-5">
+            <div class="col">
+                <img src="https://i2-prod.dailystar.co.uk/incoming/article26008544.ece/ALTERNATES/s615/0_STAR-People-are-only-just-realising-why-scoring-goes-15-30-40-in-tennis.jpg" 
+                alt="Point System"
+                style="width: 90%; height: 90%">
+            </div>
+            <div class="col mt-5 ml-0">
+                In order to win a game, a player must win at least
+                four points. All games start at 0-0. Zero (“0”) in tennis is called Love <br>
+                <br>
+                First Point = 15 <br>
+                Second Point = 30 <br>
+                Third Point = 40 <br>
+                Fourth Point = Game <br>
+                <br>
+                Tied Score = All
+                40-40 = <a href="/scoring/deuce">Deuce</a>
+            </div>
+        </div>
+        
+    </div>
+    
+    <a href="/scoring/deuce" class="btn btn-secondary btn-deuce position-absolute" style="bottom: 10px; right: 50px;">Deuce</a>
+
+</body>
+</html>

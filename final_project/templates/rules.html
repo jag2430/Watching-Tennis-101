@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rules</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Include navbar -->
+    {% include 'navbar.html' %}
+    
+    <div class="container mt-5 mb-5">
+        <div class="container mb-3">
+            <h1 class="text-center">Rules</h1>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="https://i.ibb.co/PGF6qxj/Rules-Image.jpg" 
+                    alt="Rules Image"
+                    style="width: 75%; height: 90%">
+            </div>
+            <div class="col mt-5">
+                <a href="/rules/gameplay" class="text-left">
+                    <h3>Gameplay</h3>
+                </a>
+                <a href="/rules/cointoss" class="text-left">
+                    <h3>Cointoss</h3>
+                </a>
+                <a href="/rules/starting-point" class="text-left">
+                    <h3>Starting The Point</h3>
+                </a>
+                <a href="/rules/point-breakdown" class="text-left">
+                    <h3>Point Breakdown</h3>
+                </a>
+                <a href="/rules/switching-sides" class="text-left">
+                    <h3>Switching Sides</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn btn-primary btn-next-section position-absolute mb-5" id="nextSectionBtn" style="bottom: -150px; right: 100px;">Next Section</button>
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#nextSectionBtn').click(function(){
+                window.location.href = '/scoring';
+            });
+        });
+    </script>
+</body>
+</html>
